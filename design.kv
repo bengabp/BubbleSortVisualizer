@@ -1,0 +1,63 @@
+<Block>:
+    foreground_color:1,1,1,0
+    background_normal:""
+    background_color:app.theme_cls.primary_color[:-1]+[0.8]
+
+MDBoxLayout:
+    size:root.size
+    orientation:"vertical"
+
+    MDFloatLayout:
+        size:root.size
+
+        MDLabel:
+            text:"Bubble sort algorithm visualizer"
+            font_size:35
+            bold:True
+            pos_hint:{"center_y":.85}
+            halign:"center"
+            theme_text_color:"Custom"
+            text_color:app.theme_cls.primary_color
+
+        MDRaisedButton:
+            id:add_block_btn
+            text:"Add random block [b](16max)[/b]"
+            markup:True
+            pos_hint:{"center_x":0.25,"top":0.7}
+            on_release:app.add_random_block(self,elements_label,visualization_plane)
+
+        MDRaisedButton:
+            text:"Clear blocks"
+            pos_hint:{"center_x":0.5,"top":0.7}
+            on_release:app.clear_blocks(self,elements_label,visualization_plane)
+
+        MDRaisedButton:
+            text:"Sort"
+            pos_hint:{"center_x":0.75,"top":0.7}
+            on_release:app.bubble_sort(self,elements_label,visualization_plane)
+
+        MDLabel:
+            id:elements_label
+            text:"No Elements to sort"
+            font_size:32
+            font_name:"Fruit Days.ttf"
+            size_hint:0.8,None
+            pos_hint:{"top":.45,"center_x":0.5}
+            halign:"center"
+
+
+    MDBoxLayout:
+        spacing:10
+        id:visualization_plane
+        size_hint_x:None
+        width:500
+        padding:[10,20]
+        pos_hint:{"center_x":0.4}
+
+
+
+
+
+
+
+
